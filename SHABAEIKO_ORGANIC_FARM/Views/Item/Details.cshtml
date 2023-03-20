@@ -1,0 +1,118 @@
+﻿@model IEnumerable<SHABAEIKO_ORGANIC_FARM.Models.Item>
+<div class="text-center">
+    <h1 class="text-black-50">Welcome To Shabeiko Organic Farm</h1>
+</div>
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+        
+        </div>
+
+    </div>
+</div>
+
+@*<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+
+
+                    <li class="nav-item">
+                        <div class="imgage">
+                            <img src="~/img/Fruits1.jpg" class="img-circle elevation-2" alt="Fruits" width="180" height="180">
+                        </div>
+                        <h5> <a asp-controller="Item" asp-action="Fruits" class="btn-default ">Fruits</a></h5>
+
+                    </li>
+
+
+                </ul>
+            </div>
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <div class="imgage">
+                        <img src="~/img/Vegetables2.jpg" class="img-circle elevation-2" alt="Vegetables" width="180" height="180">
+                    </div>
+                    <h5> <a asp-controller="Item" asp-action="Vegetables" class="btn-default ">Vegetables</a></h5>
+
+
+
+                </li>
+            </ul>
+
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <div class="imgage">
+                        <img src="~/img/Herbs5.jpg" class="img-circle elevation-2" alt="Herbs" width="180" height="180">
+                    </div>
+                    <h5> <a asp-controller="Item" asp-action="Vegetables" class="btn-default ">Herbs</a></h5>
+
+
+
+                </li>
+            </ul>
+
+        </div>
+
+        <br />
+        </nav>
+</header>*@
+<body>
+
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            @if (Model.Count() > 0)
+            {
+
+                @foreach (var item in Model)
+                {
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <div width="30%">
+
+                                <br />
+
+                                <a class="btn" asp-controller="Item" asp-route-Id="@item.Item_ID" asp-action="Update"><img src="@("~/image/"+item.ItImage)" asp-append-version="true" width="180" height="170"> </a>   <p>
+                                    <h6>@item.ItemName</h6>
+                                    Price: Rs @item.Price Per/@item.Description<br />
+                                </p>
+
+
+
+
+
+                                <br />
+                                <a asp-controller="Item" asp-action="Cart" asp-route-Id="@item.Item_ID" class="btn btn-danger mx-1">AddToCart</a>
+                                <a asp-controller="Item" asp-action="BUY" class="btn btn-info w-75">Buy Now</a>
+                            </div>
+</li>
+
+
+                    </ul>
+
+
+
+                }
+
+
+            }
+            else
+            {
+                <p> No items create</p>
+            }
+
+        </div>
+    </nav>
+
+</body>
+@*<div class="container">
+    <h2>Short Video</h2>
+    <p>Let's Enjoy</p>
+    <div class="embed-responsive embed-responsive-21by9">
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/nv4zp3p3D_I" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>*@
+
